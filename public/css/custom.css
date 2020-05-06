@@ -1,0 +1,36 @@
+#bg-main-content {
+  background: url("../images/background.png");
+}
+
+@media (max-width: 767px) {
+  #bg-main-content {
+    background-image: none;
+    background-color: #282958;
+  };
+
+}
+#login-form{
+  margin-left: -80px;
+}
+
+/* Portrait phones and smaller */
+
+@media (max-width: 480px) {
+  #bg-main-content {
+    background-image: none;
+    background-color: #282958;
+  };
+
+}
+@media (max-width: 480px) {
+  #login-form {
+      margin-left: 0;
+      width: 600px;
+  }
+}
+#input-group-prepend {
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+}
