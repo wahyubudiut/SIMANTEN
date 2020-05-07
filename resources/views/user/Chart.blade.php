@@ -1,9 +1,7 @@
 @extends('layouts.dashboard')
 @section('content')
 
-<div class="container">
-    <div id="chart"></div>
-</div>
+<div id="chart"></div>
 
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script>
@@ -40,7 +38,7 @@
         },
         series: [{
                 name: 'Score',
-                data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0]
+                data: {!!json_encode($nilai)!!},
 
             },
 

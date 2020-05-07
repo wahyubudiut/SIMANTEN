@@ -27,7 +27,7 @@
                             <a href="" class="badge badge-pill badge-dark">Detail</a>
                         </li>
                     </ul> -->
-                <a href="/dashboard/chart" button type="button" class="btn btn-primary btn-lg btn-block">Show Performance</button></a>
+                    <a href={{'/dashboard/chart?id='.$performa->id}} button type="button" class="btn btn-primary btn-lg btn-block">Show Performance</button></a>
             </div>
         </ul>
     </div>

@@ -14,23 +14,29 @@ class ChartController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         // $nilai = \App\Nilai;
-        $matapelajaran = \App\Mapel::all();
+        // $matapelajaran = DB::raw('SELECT m.nama AS mapel, COUNT(*) AS jumlah FROM `mapel_asistens`LEFT JOIN `mapels` m on id_mapel = m.id LEFT JOIN `users` u on id_asisten = u.id GROUP BY id_mapel');
+        // $matapelajaran = \App\Mapel::all();
         // $user = \App\User::all();
+
+        $id = $request->id;
+
+        $matapelajaran = DB::table('mapel_asistens')->leftJoin('mapels','id_mapel','=','mapels.id')->select(DB::raw('mapels.nama AS mapel,score AS jumlah'))->where('id_asisten', '=', $id)->get();
         
         //data untuk chart
         $categories = [];
-        // $nilai = [];
+        $nilai = [];
         
         foreach($matapelajaran as $mapel){
-            $categories[] = $mapel->nama;
+            $categories[] = $mapel->mapel;
+            $nilai[] = $mapel->jumlah;
+
         }
 
-        // dd($data);
 
-        return view('User.Chart', compact('matapelajaran', 'categories'));
+        return view('User.Chart', compact('matapelajaran', 'categories', 'nilai'));
     }
 
     /**

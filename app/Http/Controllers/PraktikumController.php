@@ -17,9 +17,7 @@ class PraktikumController extends Controller
     {
         $nim = Auth::user()->nim;
 
-        DB::statement(DB::raw('set @rownum=0'));
-        
-        
+        DB::statement(DB::raw('set @rownum=0')); 
         $praktikums = DB::table('praktikums')
                         ->join('users', 'praktikums.nim', '=', 'users.nim')
                         ->select([
