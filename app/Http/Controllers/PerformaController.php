@@ -20,9 +20,6 @@ class PerformaController extends Controller
      */
     public function index(Performa $performa)
     {
-        //ini yang awal tapi data admin masih tersimpan jika menggunakan code ini
-        // $performas = User::all();
-
         //code untuk menghilangkan data admin 'is_admin adalah kolom pada database' sedangkan '0' data yang akan ditampilkan 'is_admin'
         $performas = User::where('is_admin', 0)->get();
         return view('admin.performa', compact('performas'));
